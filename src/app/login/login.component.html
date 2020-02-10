@@ -1,1 +1,25 @@
-<p>login works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-2 mt-5 offset-5">
+            <mat-card class="text-center">
+                <mat-card-header class="col-12">
+                    <mat-card-title>Sign in</mat-card-title>
+                </mat-card-header>
+                <img src="assets/images/avatar.png" alt="avatar" class="col-12 m-0">
+                <mat-card-content>
+                    <h5>
+                        Sign in with
+                    </h5>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button class="btn btn-social-icon btn-google mr-3" (click)="signInWithGoogle()">
+                        <span class="fa fa-google"></span>
+                    </button>
+                    <button class="btn btn-social-icon btn-facebook" (click)="signInWithFB()" disabled>
+                        <span class="fa fa-facebook"></span>
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>

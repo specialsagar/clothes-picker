@@ -11,6 +11,8 @@ import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
 import { environment } from 'src/environments/environment';
 import { CombinatorComponent } from './combinator/combinator.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
 
 
 let config = new AuthServiceConfig([
@@ -40,7 +42,9 @@ export function provideConfig() {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SocialLoginModule
+    SocialLoginModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [
     {

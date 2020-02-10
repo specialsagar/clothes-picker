@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "angularx-social-login";
 import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,9 +11,15 @@ import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-logi
 export class LoginComponent implements OnInit {
 
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.authService.authState.subscribe((user) => {
+      this.router.navigateByUrl('/dashboard');
+    });
   }
 
   signInWithGoogle(): void {
@@ -22,9 +29,4 @@ export class LoginComponent implements OnInit {
   // signInWithFB(): void {
   //   this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
   // } 
-
-  signOut(): void {
-    this.authService.signOut();
-  }
-
 }

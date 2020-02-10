@@ -8,13 +8,13 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { CombinatorComponent } from './combinator/combinator.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent ,canActivate: [AuthGuardService]},
+  { path: 'login', component: LoginComponent},
   { path: 'wardrobe', component: WardrobeComponent ,canActivate: [AuthGuardService]},
   { path: 'dashboard', component: DashboardComponent ,canActivate: [AuthGuardService]},
   { path: 'favorites', component: FavoritesComponent ,canActivate: [AuthGuardService]},
   { path: 'combinator', component: CombinatorComponent ,canActivate: [AuthGuardService]},
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: '**', redirectTo: '/login', pathMatch: 'full' }
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '**', redirectTo: 'login', pathMatch: 'full' }
 ];
 
 @NgModule({

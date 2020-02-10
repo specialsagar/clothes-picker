@@ -8,7 +8,7 @@ import {AuthService, GoogleLoginProvider, SocialUser} from 'angularx-social-logi
 })
 export class AuthGuardService implements CanActivate {
 
-  private isLoggedIn: boolean;
+  private isLoggedIn: boolean = false;
 
   public constructor(
     private authService: AuthService,
@@ -16,14 +16,13 @@ export class AuthGuardService implements CanActivate {
   ) {
     this.authService.authState.subscribe((currentUser) => {
       this.isLoggedIn = currentUser !== null;
+      console.log(currentUser);
     });
   }
 
   public canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     if (this.isLoggedIn === false) {
-      from(this.authService.signIn(GoogleLoginProvider.PROVIDER_ID)).subscribe(() => {
-        this.router.navigateByUrl('/login');
-      });
+      this.router.navigateByUrl('/login');
     }
     return this.isLoggedIn;
   }
