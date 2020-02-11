@@ -87,7 +87,7 @@ export class DashboardComponent implements OnInit {
     this.bottomSrc = this.userData['bottoms'][bottomSrcIndex];
     this.recommendedArr = [topSrcIndex, bottomSrcIndex];
 
-    if(this.userData.favorites.includes(this.recommendedArr)){
+    if(JSON.stringify(this.userData.favorites).includes(JSON.stringify(this.recommendedArr))){
       this.isFav = true;
     } else {
       this.isFav = false;
@@ -95,7 +95,10 @@ export class DashboardComponent implements OnInit {
   }
 
   favorite(){
-    this.userData['favorites'].push(this.recommendedArr);
-    this.storageService.setUserData(this.userData);
+    if(!JSON.stringify(this.userData.favorites).includes(JSON.stringify(this.recommendedArr))) {
+      this.userData.favorites.push(this.recommendedArr);
+      this.storageService.setUserData(this.userData);
+      this.isFav = true;
+    }
   }
 }

@@ -1,1 +1,60 @@
-<p>wardrobe works!</p>
+
+<section>
+    <div class="section-header">
+        Tops
+    </div>
+
+    <div class="d-flex" style="flex-wrap: wrap;">
+        <div class="card" *ngFor="let top of userData.tops">
+            <div class="todays-recommended">
+                <img [src]="top" alt="tops" class="recommendation-image">
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <button class="add-more" (click)="uploadFile('tops')">
+            <div class="btn-icon">
+                <mat-icon>add_circle_outline</mat-icon>
+            </div>
+            <div class="btn-title">Add more</div>
+        </button>
+        <button class="add-more" (click)="openDialog('tops')">
+            <div class="btn-icon">
+                <mat-icon>add_a_photo</mat-icon>
+            </div>
+            <div class="btn-title">Take Snapshot</div>
+        </button>
+    </div>
+</section>
+
+
+<section>
+    <div class="section-header">
+        Bottoms
+    </div>
+
+    <div class="d-flex" style="flex-wrap: wrap;">
+        <div class="card" *ngFor="let bottom of userData.bottoms">
+            <div class="todays-recommended">
+                <img [src]="bottom" alt="bottoms" class="recommendation-image">
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <button class="add-more" (click)="uploadFile('bottoms')">
+            <div class="btn-icon">
+                <mat-icon>add_circle_outline</mat-icon>
+            </div>
+            <div class="btn-title">Add more</div>
+        </button>
+        <button class="add-more" (click)="openDialog('bottoms')">
+            <div class="btn-icon">
+                <mat-icon>add_a_photo</mat-icon>
+            </div>
+            <div class="btn-title">Take Snapshot</div>
+        </button>
+    </div>
+</section>
+
+
+<input #wardrobeUpload type="file" (change)="onFileChange($event)" hidden>

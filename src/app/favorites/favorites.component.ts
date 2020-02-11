@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalStoreService } from '../services/local-store.service';
 
 @Component({
   selector: 'app-favorites',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavoritesComponent implements OnInit {
 
-  constructor() { }
+  userData: any;
+
+  constructor(
+    private storageService: LocalStoreService,
+  ) { }
 
   ngOnInit() {
+    this.userData = this.storageService.getUserData();
   }
 
 }

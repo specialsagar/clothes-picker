@@ -1,1 +1,9 @@
-<p>favorites works!</p>
+
+    <div class="d-flex p-2" style="flex-wrap: wrap;">
+        <div class="card" *ngFor="let fav of userData.favorites">
+            <div class="todays-recommended">
+                <img [src]="userData.tops[fav[0]]" alt="tops" class="recommendation-image">
+                <img [src]="userData.bottoms[fav[1]]" alt="tops" class="recommendation-image bottom">
+            </div>
+        </div>
+    </div>
