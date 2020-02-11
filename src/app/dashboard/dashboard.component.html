@@ -1,1 +1,62 @@
-<p>dashboard works!</p>
+<section>
+
+    <div class="d-flex justify-content-center">
+        <div class="card">
+            <div class="favorite" *ngIf="isFav"><mat-icon>grade</mat-icon></div>
+            <div class="todays-recommended" *ngIf="topsCount > 0 && bottomsCount > 0">
+                <img [src]="topSrc" alt="tops" class="recommendation-image">
+                <img [src]="bottomSrc" alt="tops" class="recommendation-image bottom">
+            </div>
+            <div class="action-buttons">
+                <button (click)="favorite()"><mat-icon>thumb_up</mat-icon></button>
+                <button (click)="recommender()"><mat-icon>thumb_down</mat-icon></button>
+            </div>
+        </div>
+    </div>
+    <div class="no-pair-error" *ngIf="topsCount == 0 || bottomsCount == 0">
+        <h2>Dear User, please add at least one pair of tops and bottoms for the recommendation engine to work!</h2>
+    </div>
+</section>
+
+<section>
+    <div class="section-header">
+        Total registered tops: {{topsCount}}
+    </div>
+    <div class="text-center">
+        <button class="add-more" (click)="uploadFile('tops')">
+            <div class="btn-icon">
+                <mat-icon>add_circle_outline</mat-icon>
+            </div>
+            <div class="btn-title">Add more</div>
+        </button>
+        <button class="add-more" (click)="openDialog('tops')">
+            <div class="btn-icon">
+                <mat-icon>add_a_photo</mat-icon>
+            </div>
+            <div class="btn-title">Take Snapshot</div>
+        </button>
+    </div>
+</section>
+
+
+<section>
+    <div class="section-header">
+        Total registered bottoms: {{bottomsCount}}
+    </div>
+    <div class="text-center">
+        <button class="add-more" (click)="uploadFile('bottoms')">
+            <div class="btn-icon">
+                <mat-icon>add_circle_outline</mat-icon>
+            </div>
+            <div class="btn-title">Add more</div>
+        </button>
+        <button class="add-more" (click)="openDialog('bottoms')">
+            <div class="btn-icon">
+                <mat-icon>add_a_photo</mat-icon>
+            </div>
+            <div class="btn-title">Take Snapshot</div>
+        </button>
+    </div>
+</section>
+
+<input #wardrobeUpload type="file" (change)="readFile($event)" hidden>

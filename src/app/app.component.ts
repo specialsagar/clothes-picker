@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService, SocialUser } from 'angularx-social-login';
 import { Router } from '@angular/router';
+import { LocalStoreService } from './services/local-store.service';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
+    private storageService: LocalStoreService,
     private router: Router
   ){}
   
@@ -21,6 +23,7 @@ export class AppComponent implements OnInit {
     this.authService.authState.subscribe((user) => {
       this.isLoggedIn = true;
       this.user = user;
+      this.storageService.setUser(user);
     });
   }
 

@@ -10,9 +10,10 @@ import { FavoritesComponent } from './favorites/favorites.component';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
 import { environment } from 'src/environments/environment';
-import { CombinatorComponent } from './combinator/combinator.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { SnapshotModelComponent } from './snapshot-model/snapshot-model.component';
+import { WebcamModule } from 'ngx-webcam';
 
 
 let config = new AuthServiceConfig([
@@ -37,14 +38,15 @@ export function provideConfig() {
     LoginComponent,
     WardrobeComponent,
     FavoritesComponent,
-    CombinatorComponent,
+    SnapshotModelComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SocialLoginModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    WebcamModule
   ],
   providers: [
     {
@@ -52,6 +54,7 @@ export function provideConfig() {
       useFactory: provideConfig
     }
   ],
+  entryComponents: [SnapshotModelComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

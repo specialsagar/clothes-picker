@@ -1,0 +1,20 @@
+<div mat-dialog-content class="text-center">
+    
+    <webcam [height]="500" [width]="500" [trigger]="triggerObservable" (imageCapture)="handleImage($event)"
+            [imageQuality]="1" [videoOptions]="videoOptions"
+            (initError)="handleInitError($event)"
+    ></webcam>
+    <div *ngIf="webcamImage">
+        <img [src]="webcamImage.imageAsDataUrl" alt="">
+    </div>
+</div>
+<div mat-dialog-actions class="justify-content-center">
+  <button mat-flat-button color="primary" (click)="triggerSnapshot()">Take SnapShot</button>
+  <button mat-flat-button color="primary" (click)="saveImage()" [disabled]="!webcamImage">Save SnapShot</button>
+  <button mat-flat-button color="primary" (click)="cancelSnap()">Cancel</button>
+</div>
+
+
+<!-- Copyright 2019 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

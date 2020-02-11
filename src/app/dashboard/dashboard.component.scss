@@ -1,0 +1,79 @@
+section {
+    background: #dcd4ff;
+    text-align: center;
+    &:first-child {
+        min-height: 300px;
+        padding: 30px;
+    }
+}
+
+.no-pair-error {
+    color: red;
+}
+
+.section-header {
+    background-color: #6a58b7;
+    height: 40px;
+    align-items: center;
+    display: flex;
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+    padding-left: 30px;
+}
+
+.add-more {
+    padding: 10px;
+    width: 160px;
+    margin: 10px;
+    background: #bcb4de;
+    border-radius: 20px;
+    border: 4px solid #dcd9e6;
+}
+
+
+.card {
+    width: 280px;
+    display: flex;
+    border: 10px solid #fff;
+    border-radius: 13px;
+    .favorite {
+        position: absolute;
+        align-self: flex-end;
+        color: #eccb15;
+        z-index: 1;
+        background: none;
+        border: none;
+        display: flex;
+    }
+    .recommendation-image {
+        width: 100%;
+        &.bottom {
+            margin-top: 10px;
+        }
+    }
+    .todays-recommended {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .action-buttons {
+        position: absolute;
+        bottom: 0;
+        align-self: center;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        z-index: 1;
+        button {
+            border: 2px solid #e3e3e3;
+            background: none;
+            color: #e3e3e3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            padding: 8px;
+        }
+    }
+}
