@@ -94,6 +94,14 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  dislike(){
+    if(this.isFav) {
+      let fav = JSON.stringify(this.userData.favorites);
+      fav.replace(JSON.stringify(this.recommendedArr), '');
+      this.recommender();
+    }
+  }
+
   favorite(){
     if(!JSON.stringify(this.userData.favorites).includes(JSON.stringify(this.recommendedArr))) {
       this.userData.favorites.push(this.recommendedArr);
